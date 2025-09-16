@@ -83,8 +83,7 @@ def test_cortex_ai(question):
     query = f"""
     SELECT SNOWFLAKE.CORTEX.COMPLETE(
         'mixtral-8x7b',
-        'You are a manufacturing analyst. Answer this question based on the context: {question}',
-        {{'max_tokens': 300, 'temperature': 0.1}}
+        'You are a manufacturing analyst. Answer this question based on the context: {question}'
     ) as response
     """
     result = run_query(query)
