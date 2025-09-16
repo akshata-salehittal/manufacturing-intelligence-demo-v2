@@ -1,0 +1,21 @@
+-- Manufacturing Intelligence Demo - Clean Setup
+-- Simple, error-free database setup
+
+-- Create database and schema
+CREATE DATABASE IF NOT EXISTS MANUFACTURING_DEMO;
+USE DATABASE MANUFACTURING_DEMO;
+
+CREATE SCHEMA IF NOT EXISTS DEMO_DATA;
+USE SCHEMA DEMO_DATA;
+
+-- Create warehouse
+CREATE WAREHOUSE IF NOT EXISTS DEMO_WH 
+WITH 
+    WAREHOUSE_SIZE = 'SMALL'
+    AUTO_SUSPEND = 60
+    AUTO_RESUME = TRUE;
+
+USE WAREHOUSE DEMO_WH;
+
+-- Test that everything works
+SELECT CURRENT_DATABASE(), CURRENT_SCHEMA(), CURRENT_WAREHOUSE();
